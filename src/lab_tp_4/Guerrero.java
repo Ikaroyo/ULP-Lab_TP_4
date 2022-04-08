@@ -47,5 +47,6 @@ public class Guerrero extends Personaje {
             energia-=10;
         }else {
         }
+        
     }
 }
