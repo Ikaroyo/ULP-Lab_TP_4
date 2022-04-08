@@ -4,49 +4,57 @@ public class Guerrero extends Personaje {
 
     protected boolean caballo;
 
-
     public Guerrero(String nick, Position ubicacion) {
-        super(nick,ubicacion);
+        super(nick, ubicacion);
 
     }
-    
-    public boolean getCaballo(){
+
+    public boolean getCaballo() {
         return this.caballo;
     }
-    
-    public void setCaballo(boolean tieneCaballo){
-        this.caballo=tieneCaballo;
+
+    public void setCaballo(boolean tieneCaballo) {
+        this.caballo = tieneCaballo;
     }
 
     @Override
     public void avanzar() {
-                switch (this.orientacion) {
+        
+        int velocidad;
+        
+        if (this.getCaballo() == true) {
+            velocidad = 10;
+        } else {
+            velocidad = 1;
+        }
+        
+        switch (super.orientacion) {
             case 'N':
-                this.ubicacion.setY(this.ubicacion.getY()+10);
+                super.ubicacion.setY(super.ubicacion.getY() + velocidad);
                 break;
             case 'E':
-                this.ubicacion.setX(this.ubicacion.getX()+10);
+                super.ubicacion.setX(super.ubicacion.getX() + velocidad);
                 break;
             case 'S':
-                this.ubicacion.setY(this.ubicacion.getY()-10);
+                super.ubicacion.setY(super.ubicacion.getY() - velocidad);
                 break;
             default:
-                this.ubicacion.setX(this.ubicacion.getX()-10);
+                super.ubicacion.setX(super.ubicacion.getX() - velocidad);
                 break;
         }
     }
 
     @Override
     public void disparar() {
-        if (this.energia>=30){
-            energia-=10;
-        }else if(this.getCaballo() && this.energia<30 && this.energia>=10){
-            energia-=10;
+        if (super.energia >= 30) {
+            super.energia -= 10;
+        } else if (this.getCaballo() && super.energia < 30 && super.energia >= 10) {
+            super.energia -= 10;
             this.setCaballo(false);
-        } else if (!this.getCaballo() && this.energia>=10){
-            energia-=10;
-        }else {
+        } else if (!this.getCaballo() && super.energia >= 10) {
+            super.energia -= 10;
+        } else {
         }
-        
+
     }
 }

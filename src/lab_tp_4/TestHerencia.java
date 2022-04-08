@@ -15,7 +15,7 @@ public class TestHerencia {
         System.out.println("***************************************************");
         System.out.println("Su estado inicial es:");
         System.out.println("Su orientacion es: " + warrior.getOrientacion());
-        System.out.println("Su posicion es: (x,y)=" + pos.getX() + "," + pos.getY());
+        System.out.println("Su posicion es: (x,y)=(" + pos.getX() + "," + pos.getY()+")");
         System.out.println("Su energia actual es: " + warrior.getEnergia());
         System.out.println("***************************************************");
 
@@ -47,7 +47,7 @@ public class TestHerencia {
         System.out.println("***************************************************");
         System.out.println("Su estado final es:");
         System.out.println("Su orientacion es: " + warrior.getOrientacion());
-        System.out.println("Su posicion es: (x,y)=" + pos.getX() + "," + pos.getY());
+        System.out.println("Su posicion es: (x,y)=(" + pos.getX() + "," + pos.getY()+")");
         System.out.println("Su energia actual es: " + warrior.getEnergia());
         System.out.println("***************************************************");
 
@@ -59,7 +59,7 @@ public class TestHerencia {
 
         System.out.println("Respuesta 2 del TP 4:");
         // ¿Cual es la nueva posición del Guerrero al finalizar la ejecución?
-        System.out.println("Su posicion es: (x,y)=" + pos.getX() + "," + pos.getY());
+        System.out.println("Su posicion es: (x,y)=(" + pos.getX() + "," + pos.getY()+")");
         System.out.println("***************************************************");
     }
 }
