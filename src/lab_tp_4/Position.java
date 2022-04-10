@@ -2,13 +2,13 @@ package lab_tp_4;
 
 public class Position {
 
-    private int x;
+    protected int x;
 
-    private int y;
+    protected int y;
 
     public Position(int x, int y) {
-        this.x=x;
-        this.y=y;
+        this.x = x;
+        this.y = y;
     }
 
     public int getX() {
@@ -26,6 +26,6 @@ public class Position {
     public void setY(int y) {
         this.y = y;
     }
-    
-    
+
+
 }

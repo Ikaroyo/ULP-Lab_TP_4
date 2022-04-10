@@ -4,8 +4,8 @@ public class Guerrero extends Personaje {
 
     protected boolean caballo;
 
-    public Guerrero(String nick, Position ubicacion) {
-        super(nick, ubicacion);
+    public Guerrero(String nick, int x, int y) {
+        super(nick, x, y);
 
     }
 
@@ -19,28 +19,20 @@ public class Guerrero extends Personaje {
 
     @Override
     public void avanzar() {
-        
+
         int velocidad;
-        
-        if (this.getCaballo() == true) {
+
+        if (this.getCaballo()) {
             velocidad = 10;
         } else {
             velocidad = 1;
         }
-        
+
         switch (super.orientacion) {
-            case 'N':
-                super.ubicacion.setY(super.ubicacion.getY() + velocidad);
-                break;
-            case 'E':
-                super.ubicacion.setX(super.ubicacion.getX() + velocidad);
-                break;
-            case 'S':
-                super.ubicacion.setY(super.ubicacion.getY() - velocidad);
-                break;
-            default:
-                super.ubicacion.setX(super.ubicacion.getX() - velocidad);
-                break;
+            case 'N' -> super.ubicacion.setY(super.ubicacion.getY() + velocidad);
+            case 'E' -> super.ubicacion.setX(super.ubicacion.getX() + velocidad);
+            case 'S' -> super.ubicacion.setY(super.ubicacion.getY() - velocidad);
+            default -> super.ubicacion.setX(super.ubicacion.getX() - velocidad);
         }
     }
 
@@ -48,13 +40,15 @@ public class Guerrero extends Personaje {
     public void disparar() {
         if (super.energia >= 30) {
             super.energia -= 10;
-        } else if (this.getCaballo() && super.energia < 30 && super.energia >= 10) {
+        } else if (this.getCaballo() && super.energia < 30) {
             super.energia -= 10;
             this.setCaballo(false);
         } else if (!this.getCaballo() && super.energia >= 10) {
             super.energia -= 10;
         } else {
+            System.out.println("No puedes disparar");
         }
+
 
     }
 }

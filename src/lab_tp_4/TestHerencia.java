@@ -1,45 +1,56 @@
 package lab_tp_4;
 
+
+import java.util.Scanner;
+
 public class TestHerencia {
 
     public static void main(String[] args) {
-        Position pos = new Position(100, 200);
-        Guerrero warrior = new Guerrero("Thor", pos);
+
+        Guerrero warrior = new Guerrero("Thor", 100, 200);
 
         int energyStart;
         int energyEnd;
 
+        Scanner teclado = new Scanner(System.in);
+
         energyStart = warrior.getEnergia();
 
-        // Impresion de los valores al inicio si se quisiera        
+        // Impresion de los valores al inicio si se quisiera
         System.out.println("***************************************************");
         System.out.println("Su estado inicial es:");
         System.out.println("Su orientacion es: " + warrior.getOrientacion());
-        System.out.println("Su posicion es: (x,y)=(" + pos.getX() + "," + pos.getY()+")");
+        System.out.println("Su posicion es: (x,y)=(" + warrior.ubicacion.getX() + "," + warrior.ubicacion.getY() + ")");
         System.out.println("Su energia actual es: " + warrior.getEnergia());
         System.out.println("***************************************************");
 
-        // Inicio en N girar 3 hasta mirar al O 
-        warrior.girar();
-        warrior.girar();
-        warrior.girar();
+
+        // Encontrar un caballo
+        if (!warrior.getCaballo()) {
+            System.out.println("Thor ha encontrado un caballo, desea montarlo? (s/n)");
+           String answer = teclado.nextLine();
+            if (answer.equals("s")) {
+                warrior.setCaballo(true);
+            } else {
+                System.out.println("Thor no desea montar el caballo");
+            }
+        }
+
+        // Inicio en N girar 3 hasta mirar al O
+        while (warrior.getOrientacion() != 'O') {
+            warrior.girar();
+        }
 
         // Avanzar 5 veces
-        warrior.avanzar();
-        warrior.avanzar();
-        warrior.avanzar();
-        warrior.avanzar();
-        warrior.avanzar();
+        for (int i = 0; i < 5; i++) {
+            warrior.avanzar();
+        }
 
         // Disparar 8 veces
-        warrior.disparar();
-        warrior.disparar();
-        warrior.disparar();
-        warrior.disparar();
-        warrior.disparar();
-        warrior.disparar();
-        warrior.disparar();
-        warrior.disparar();
+        for (int i = 0; i < 8; i++) {
+            warrior.disparar();
+        }
+
 
         energyEnd = warrior.getEnergia();
 
@@ -47,7 +58,7 @@ public class TestHerencia {
         System.out.println("***************************************************");
         System.out.println("Su estado final es:");
         System.out.println("Su orientacion es: " + warrior.getOrientacion());
-        System.out.println("Su posicion es: (x,y)=(" + pos.getX() + "," + pos.getY()+")");
+        System.out.println("Su posicion es: (x,y)=(" + warrior.ubicacion.getX() + "," + warrior.ubicacion.getY() + ")");
         System.out.println("Su energia actual es: " + warrior.getEnergia());
         System.out.println("***************************************************");
 
@@ -59,7 +70,7 @@ public class TestHerencia {
 
         System.out.println("Respuesta 2 del TP 4:");
         // ¿Cual es la nueva posición del Guerrero al finalizar la ejecución?
-        System.out.println("Su posicion es: (x,y)=(" + pos.getX() + "," + pos.getY()+")");
+        System.out.println("Su posicion es: (x,y)=(" + warrior.ubicacion.getX() + "," + warrior.ubicacion.getY() + ")");
         System.out.println("***************************************************");
     }
 }
