@@ -29,16 +29,16 @@ public class Guerrero extends Personaje {
         }
 
         switch (super.orientacion) {
-            case 'N' : 
+            case 'N':
                 super.ubicacion.setY(super.ubicacion.getY() + velocidad);
                 break;
-            case 'E' : 
+            case 'E':
                 super.ubicacion.setX(super.ubicacion.getX() + velocidad);
                 break;
-            case 'S' : 
+            case 'S':
                 super.ubicacion.setY(super.ubicacion.getY() - velocidad);
                 break;
-            default : 
+            default:
                 super.ubicacion.setX(super.ubicacion.getX() - velocidad);
                 break;
         }

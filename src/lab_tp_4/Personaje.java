@@ -50,14 +50,6 @@ public abstract class Personaje {
             default:
                 this.ubicacion.setX(this.ubicacion.getX() - 1);
         }
-        /*
-        switch (this.orientacion) {
-            case 'N' : this.ubicacion.setY(this.ubicacion.getY() + 1);
-            case 'E' : this.ubicacion.setX(this.ubicacion.getX() + 1);
-            case 'S' : this.ubicacion.setY(this.ubicacion.getY() - 1);
-            default : this.ubicacion.setX(this.ubicacion.getX() - 1);
-        }
-         */
     }
 
     public void girar() {
@@ -75,7 +67,6 @@ public abstract class Personaje {
                 this.orientacion = 'N';
                 break;
         }
-
     }
 
     public Position getUbicacion() {
